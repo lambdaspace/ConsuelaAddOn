@@ -1,0 +1,15 @@
+{
+  "title": "Consuela (TechMinistry.gr Status)",
+  "name": "consuelaaddon",
+  "version": "0.0.1",
+  "description": "Space status notification service",
+  "main": "index.js",
+  "author": "techministry.gr",
+  "engines": {
+    "firefox": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}
