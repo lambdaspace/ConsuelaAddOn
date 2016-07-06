@@ -1,20 +1,22 @@
 {
 
   "manifest_version": 2,
-  "name": "Consuela",
+  "name": "MinisterIn",
   "version": "0.1",
 
   "description": "",
 
-  "icons": {
-    "48": "icons/consuela-48.png"
-  },
+  "browser_action": {
+  "default_icon": "icons/c_48x48.png",
+  "default_title": "Tech Ministry's status!"
+},
 
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["Consuela.js"]
-    }
+  "background": {
+    "scripts": ["MinisterIn.js"]
+},
+  "permissions":[
+    "*://*.techministry.gr/*",
+    "webRequest"
   ]
 
 }
