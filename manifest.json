@@ -1,0 +1,20 @@
+{
+
+  "manifest_version": 2,
+  "name": "Consuela",
+  "version": "0.1",
+
+  "description": "",
+
+  "icons": {
+    "48": "icons/consuela-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["Consuela.js"]
+    }
+  ]
+
+}
