@@ -17,8 +17,7 @@
   },
 
   "permissions": [
-    "*://*.techministry.gr/*",
-    "webRequest"
+    "*://*.techministry.gr/*"
   ]
 
 }
