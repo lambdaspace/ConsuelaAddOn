@@ -28,24 +28,29 @@ function parseEvents(data) {
       return;
     }
     if (event.date > Date.now() - 86400000) {
+      eventsExist = true;
       var link = "https://discourse.techministry.gr/t/" + topic.id;
       document.getElementById("events").innerHTML += "<tr class=\"clickable\" url=\"" + link + "\"> <td>" + event.day + "</td> <td>" + event.time + "</td> <td>" + event.title + "</td> </tr>";
     }
   });
 };
 
-function httpGet(theUrl)
-{
+function httpGet(theUrl) {
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open( "GET", theUrl, false );
   xmlHttp.send( null );
   return xmlHttp.responseText;
 };
 
+var eventsExist = false;
 parseEvents(JSON.parse(httpGet("https://discourse.techministry.gr/c/5/l/latest.json")));
 
-Array.from(document.getElementsByClassName("clickable")).forEach(function(eventRow) {
-  eventRow.onclick = function() {
-    window.open(eventRow.getAttribute("url"));
-  };
-});
+if (eventsExist) {
+  Array.from(document.getElementsByClassName("clickable")).forEach(function(eventRow) {
+    eventRow.onclick = function() {
+      window.open(eventRow.getAttribute("url"));
+    };
+  });
+} else {
+  document.getElementById("events").outerHTML = "<p> There are currently no upcoming events <br> Check again later and have a nice day :) </p>";
+}
