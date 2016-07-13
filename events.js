@@ -52,5 +52,6 @@ if (eventsExist) {
     };
   });
 } else {
+  document.getElementsByTagName("h2")[0].remove();
   document.getElementById("events").outerHTML = "<p> There are currently no upcoming events <br> Check again later and have a nice day :) </p>";
 }
