@@ -17,7 +17,7 @@ function eventParser(topic) {
   }
 
   return event;
-}
+};
 
 function parseEvents(data) {
   data.topic_list.topics.forEach(function(topic) {
@@ -33,14 +33,14 @@ function parseEvents(data) {
       document.getElementById("events").innerHTML += "<tr class=\"clickable\" url=\"" + link + "\"> <td>" + event.day + "</td> <td>" + event.time + "</td> <td>" + event.title + "</td> </tr>";
     }
   });
-}
+};
 
 function httpGet(theUrl) {
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open( "GET", theUrl, false );
   xmlHttp.send( null );
   return xmlHttp.responseText;
-}
+};
 
 var eventsExist = false;
 parseEvents(JSON.parse(httpGet("https://discourse.techministry.gr/c/5/l/latest.json")));
