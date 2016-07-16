@@ -36,7 +36,7 @@ function parseEvents(data) {
 };
 
 var eventsExist = false;
-var port = browser.runtime.connect({name: "eventData"});
+var port = chrome.runtime.connect({name: "eventData"});
 
 port.onMessage.addListener(function(eventsJSON) {
   parseEvents(JSON.parse(eventsJSON));

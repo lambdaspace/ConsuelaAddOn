@@ -21,7 +21,7 @@ var eventData;
 getEventData();
 setInterval(getEventData, 300000);
 
-browser.runtime.onConnect.addListener(function(port) {
+chrome.runtime.onConnect.addListener(function(port) {
   if (port.name == "eventData") {
     port.postMessage(eventData);
   }
