@@ -13,7 +13,7 @@
   },
 
   "background": {
-    "scripts": ["MinisterIn.js"]
+    "scripts": ["MinisterIn.js", "eventData.js"]
   },
 
   "permissions": [
