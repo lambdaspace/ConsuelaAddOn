@@ -50,4 +50,14 @@ port.onMessage.addListener(function(eventsJSON) {
   } else {
     document.getElementById("events").outerHTML = "<p> There are currently no upcoming events <br> Check again later and have a nice day :) </p>";
   }
+
+  document.getElementsByTagName("script")[0].remove();
+
+  //Send the current content of body to the background script
+  chrome.runtime.connect({name: "HTMLData"}).postMessage(document.getElementsByTagName("body")[0].innerHTML);
+
+  //Set the popup's HTML document to the dummy one
+  chrome.browserAction.setPopup({
+    popup: chrome.extension.getURL("eventsDummy.html")
+  });
 });
