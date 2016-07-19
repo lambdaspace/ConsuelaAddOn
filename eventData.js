@@ -4,7 +4,7 @@ function httpGetAsync(theUrl, callback) {
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
       callback(xmlHttp.responseText);
   };
-  xmlHttp.open("GET", theUrl, true); // true for asynchronous
+  xmlHttp.open("GET", theUrl, true);
   xmlHttp.send(null);
 };
 
@@ -12,9 +12,7 @@ function httpGetAsync(theUrl, callback) {
 function setEventData(data) {
   if (eventData != data) {
     eventData = data;
-    chrome.browserAction.setPopup({
-      popup: chrome.extension.getURL("events.html")
-    });
+    chrome.browserAction.setPopup({popup: "events.html"});
   }
 };
 

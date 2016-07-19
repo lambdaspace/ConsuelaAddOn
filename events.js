@@ -57,7 +57,5 @@ port.onMessage.addListener(function(eventsJSON) {
   chrome.runtime.connect({name: "HTMLData"}).postMessage(document.getElementsByTagName("body")[0].innerHTML);
 
   //Set the popup's HTML document to the dummy one
-  chrome.browserAction.setPopup({
-    popup: chrome.extension.getURL("eventsDummy.html")
-  });
+  chrome.browserAction.setPopup({popup: "eventsDummy.html"});
 });
