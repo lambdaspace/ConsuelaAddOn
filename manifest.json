@@ -8,8 +8,7 @@
 
   "browser_action": {
   "default_icon": "icons/c_48x48.png",
-  "default_title": "Tech Ministry's status!",
-  "default_popup": "events.html"
+  "default_title": "Tech Ministry's status!"
   },
 
   "background": {
