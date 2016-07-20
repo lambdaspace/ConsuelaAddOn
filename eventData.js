@@ -17,7 +17,7 @@ function setEventData(data) {
 };
 
 function getEventData() {
-  httpGetAsync("https://discourse.techministry.gr/c/5/l/latest.json", setEventData);
+  httpGetAsync("https://discourse.techministry.rocks/c/5/l/latest.json", setEventData);
 };
 
 //Stores the latest JSON response from discourse

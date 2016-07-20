@@ -29,7 +29,7 @@ function parseEvents(data) {
     }
     if (event.date > Date.now() - 86400000) {
       eventsExist = true;
-      var link = "https://discourse.techministry.gr/t/" + topic.id;
+      var link = "https://discourse.techministry.rocks/t/" + topic.id;
       document.getElementById("events").innerHTML += "<tr class=\"clickable\" url=\"" + link + "\"> <td>" + event.day + "</td> <td>" + event.time + "</td> <td>" + event.title + "</td> </tr>";
     }
   });

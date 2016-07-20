@@ -16,7 +16,7 @@
   },
 
   "permissions": [
-    "*://*.techministry.gr/*"
+    "*://*.techministry.rocks/*"
   ]
 
 }
