@@ -1,14 +1,15 @@
 {
 
   "manifest_version": 2,
-  "name": "MinisterIn",
-  "version": "0.3",
+  "name": "Lambda Hackerspace",
+  "version": "0.4",
 
-  "description": "",
+  "description": "Lambda space's information system.
+  This WebExtension informs you about the status of the hackerspace and the upcoming events",
 
   "browser_action": {
   "default_icon": "icons/c_48x48.png",
-  "default_title": "Tech Ministry's status!"
+  "default_title": "Lambda Hackerspace status!"
   },
 
   "background": {
