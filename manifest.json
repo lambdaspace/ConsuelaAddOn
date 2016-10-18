@@ -16,7 +16,7 @@
   },
 
   "permissions": [
-    "*://*.techministry.rocks/*"
+    "*://*.lambdaspace.gr/*"
   ]
 
 }

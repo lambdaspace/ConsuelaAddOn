@@ -34,7 +34,7 @@ function httpGetAsync(theUrl, callback)
 }
 
 function timer(){
-  httpGetAsync("https://www.techministry.rocks/hackers.txt", checkStatus);
+  httpGetAsync("https://www.lambdaspace.gr/hackers.txt", checkStatus);
 }
 
 timer();
