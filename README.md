@@ -1,8 +1,8 @@
-#Consuela ([Tech Ministry's](https://www.techministry.rocks) Status Web Extension)
+#Consuela ([LambdaSpace](https://www.lambdaspace.gr) Status Web Extension)
 
 ## About ##
 
-A web extension that displays [Tech Ministry's](https://www.techministry.rocks) status ( C for "Closed" and O for "Open") as well as upcοming events, when it's clicked. Currently, the web extension is at **alpha** state.
+A web extension that displays [Lambda hackerspace's](https://www.lambdaspace.gr) status ( C for "Closed" and O for "Open") as well as upcοming events, when it's clicked. Currently, the web extension is at **alpha** state.
 
 Supported browsers: Firefox Beta, Firefox Developers edition, Firefox Nightly, Chrome, Chromium, Canary. 
 
