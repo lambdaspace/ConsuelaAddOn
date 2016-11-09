@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Lambda Hackerspace",
-  "version": "0.5.0",
+  "version": "0.5.1",
 
   "description": "Lambda space's information system. This WebExtension informs you about the status of the hackerspace and the upcoming events",
 
@@ -17,6 +17,13 @@
 
   "permissions": [
     "*://*.lambdaspace.gr/*"
-  ]
+  ],
+
+  "applications": {
+    "gecko": {
+      "id": "info@lambdaspace.gr",
+      "strict_min_version": "45.0"
+    }
+  }
 
 }
