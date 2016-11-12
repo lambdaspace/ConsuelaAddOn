@@ -49,7 +49,10 @@ function parseEvents(data) {
 };
 
 var eventsExist = false;
+
+// A nx2 array that contains upcoming events in the following form [Date object, tr element]
 var eventsArray = [];
+
 var port = chrome.runtime.connect({name: "eventData"});
 
 port.onMessage.addListener(function(eventsJSON) {
