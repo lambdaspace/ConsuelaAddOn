@@ -30,18 +30,29 @@ function parseEvents(data) {
     if (event.date > Date.now() - 86400000) {
       eventsExist = true;
       var link = "https://community.lambdaspace.gr/t/" + topic.id;
-      document.getElementById("events").innerHTML += "<tr class=\"clickable\" url=\"" + link + "\"> <td>" + event.day + "</td> <td>" + event.time + "</td> <td>" + event.title + "</td> </tr>";
+      eventsArray.push([event.date, "<tr class=\"clickable\" url=\"" + link + "\"> <td>" + event.day + "</td> <td>" + event.time + "</td> <td>" + event.title + "</td> </tr>"]);
     }
   });
 };
 
 var eventsExist = false;
+var eventsArray = [];
 var port = chrome.runtime.connect({name: "eventData"});
 
 port.onMessage.addListener(function(eventsJSON) {
   parseEvents(JSON.parse(eventsJSON));
 
   if (eventsExist) {
+    // Sort events by date
+    eventsArray.sort(function(a, b) {
+      return a[0] - b[0];
+    });
+
+    // Append the elements to the table
+    eventsArray.forEach(function(event) {
+      document.getElementById("events").innerHTML += event[1];
+    });
+
     Array.from(document.getElementsByClassName("clickable")).forEach(function(eventRow) {
       eventRow.onclick = function() {
         window.open(eventRow.getAttribute("url"));
