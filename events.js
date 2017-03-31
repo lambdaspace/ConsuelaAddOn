@@ -1,3 +1,4 @@
+// Identifies topics about events and creates an object representation
 function eventParser(topic) {
   var event = {};
   var tokens = topic.split(' ');
@@ -19,6 +20,7 @@ function eventParser(topic) {
   return event;
 };
 
+// Parses the data from discourse and generates tr elements
 function parseEvents(data) {
   data.topic_list.topics.forEach(function(topic) {
     var event;
@@ -29,19 +31,45 @@ function parseEvents(data) {
     }
     if (event.date > Date.now() - 86400000) {
       eventsExist = true;
-      var link = "https://community.lambdaspace.gr/t/" + topic.id;
-      document.getElementById("events").innerHTML += "<tr class=\"clickable\" url=\"" + link + "\"> <td>" + event.day + "</td> <td>" + event.time + "</td> <td>" + event.title + "</td> </tr>";
+      var tr = document.createElement("tr");
+      tr.className = "clickable";
+      tr.setAttribute("url", "https://community.lambdaspace.gr/t/" + topic.id);
+      var td = document.createElement("td")
+      td.textContent = event.day;
+      tr.appendChild(td);
+      td = document.createElement("td")
+      td.textContent = event.time;
+      tr.appendChild(td);
+      td = document.createElement("td")
+      td.textContent = event.title;
+      tr.appendChild(td);
+      eventsArray.push([event.date, tr]);
     }
   });
 };
 
 var eventsExist = false;
+
+// A nx2 array that contains upcoming events in the following form [Date object, tr element]
+var eventsArray = [];
+
 var port = chrome.runtime.connect({name: "eventData"});
 
 port.onMessage.addListener(function(eventsJSON) {
   parseEvents(JSON.parse(eventsJSON));
 
   if (eventsExist) {
+    // Sort events by date
+    eventsArray.sort(function(a, b) {
+      return a[0] - b[0];
+    });
+
+    // Append the elements to the table
+    eventsArray.forEach(function(event) {
+      document.getElementById("events").appendChild(event[1]);
+    });
+
+    // Make the table's rows (events) clickable
     Array.from(document.getElementsByClassName("clickable")).forEach(function(eventRow) {
       eventRow.onclick = function() {
         window.open(eventRow.getAttribute("url"));
