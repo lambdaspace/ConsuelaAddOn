@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Lambda Hackerspace",
-  "version": "0.5.1",
+  "version": "0.6.0",
 
   "description": "Lambda space's information system. This WebExtension informs you about the status of the hackerspace and the upcoming events",
 
