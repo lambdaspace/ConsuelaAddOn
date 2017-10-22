@@ -1,11 +1,15 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-html, body {
-    font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', 'open-sans', sans-serif;
+html,
+body {
+    font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', 'open-sans',
+        sans-serif;
     min-height: 80%;
     color: #212121;
 }
@@ -51,17 +55,21 @@ caption {
     font-weight: 300;
     color: #212121;
     text-align: center;
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
 }
 
-table> thead> tr, table> tbody> tr {
+table > thead > tr,
+table > tbody > tr {
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
     background-color: #f5f5f5;
 }
 
-table> thead> tr> th, table> tbody> tr> th, table> thead> tr> td, table> tbody> tr> td {
+table > thead > tr > th,
+table > tbody > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td {
     text-align: center;
     vertical-align: middle;
     -webkit-transition: all 0.3s ease;
@@ -72,23 +80,28 @@ table> thead> tr> th, table> tbody> tr> th, table> thead> tr> td, table> tbody> 
     border-bottom: 1px solid #e0e0e0;
 }
 
-table> tbody> tr> td {
+table > tbody > tr > td {
     border: 0;
     border-bottom: 1px solid #e0e0e0;
 }
 
-table> thead> tr> th {
+table > thead > tr > th {
     font-weight: 400;
     color: #757575;
     vertical-align: bottom;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-table> caption+ thead> tr:first-child> th, table> colgroup+ thead> tr:first-child> th, table> thead:first-child> tr:first-child> th, table> caption+ thead> tr:first-child> td, table> colgroup+ thead> tr:first-child> td, table> thead:first-child> tr:first-child> td {
+table > caption + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > th,
+table > thead:first-child > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > td {
     border-top: 0;
 }
 
-table> tbody+ tbody {
+table > tbody + tbody {
     border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -100,15 +113,17 @@ table {
     border: 0;
 }
 
-table> tbody> tr> td:last-child {
+table > tbody > tr:last-child > td {
     border-bottom: 0;
 }
 
-table> thead> tr> th, table> thead> tr> td {
+table > thead > tr > th,
+table > thead > tr > td {
     border-bottom-width: 2px;
 }
 
-table> tbody> tr:hover> td, table> tbody> tr:hover> th {
+table > tbody > tr:hover > td,
+table > tbody > tr:hover > th {
     background-color: rgba(0, 0, 0, 0.12);
 }
 
