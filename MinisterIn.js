@@ -25,10 +25,10 @@ function checkStatus(text) {
 }
 
 function timer() {
-  fetch('https://www.lambdaspace.gr/hackers.txt')
-    .then(response => response.text()) // Get the text of the response
-    .then(data => checkStatus(data))
-    .catch(e => console.error(e)); // Handle exeptions
+  fetch('https://api.lambdaspace.gr/api/v2.0/status')
+    .then(response => response.json())
+    .then(data => checkStatus(data.people_now_present))
+    .catch(e => console.error(e));
 }
 
 timer();
