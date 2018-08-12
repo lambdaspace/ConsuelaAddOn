@@ -20,30 +20,30 @@ function eventParser(topic) {
   return event;
 };
 
+
+function toDate(dateStr) {
+  var parts = dateStr.split("/");
+  return new Date(parts[2], parts[1] - 1, parts[0]);
+}
+
 // Parses the data from discourse and generates tr elements
 function parseEvents(data) {
-  data.topic_list.topics.forEach(function(topic) {
-    var event;
-    try {
-      event = eventParser(topic.title);
-    } catch(e) {
-      return;
-    }
-    if (event.date > Date.now() - 86400000) {
+  data.events.forEach(function (event) {
+    if (toDate(event.date) >= Date.now()) {
       eventsExist = true;
       var tr = document.createElement("tr");
       tr.className = "clickable";
-      tr.setAttribute("url", "https://community.lambdaspace.gr/t/" + topic.id);
+      tr.setAttribute("url", event.url);
       var td = document.createElement("td")
-      td.textContent = event.day;
+      td.textContent = event.date;
       tr.appendChild(td);
       td = document.createElement("td")
-      td.textContent = event.time;
+      td.textContent = event.begin;
       tr.appendChild(td);
       td = document.createElement("td")
       td.textContent = event.title;
       tr.appendChild(td);
-      eventsArray.push([event.date, tr]);
+      eventsArray.push([event.day, tr]);
     }
   });
 };
@@ -56,7 +56,7 @@ var eventsArray = [];
 var port = chrome.runtime.connect({name: "eventData"});
 
 port.onMessage.addListener(function(eventsJSON) {
-  parseEvents(JSON.parse(eventsJSON));
+  parseEvents(eventsJSON);
 
   if (eventsExist) {
     // Sort events by date
