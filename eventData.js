@@ -1,11 +1,11 @@
 function httpGetAsync(theUrl, callback) {
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.onreadystatechange = function() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-      callback(xmlHttp.responseText);
-  };
-  xmlHttp.open("GET", theUrl, true);
-  xmlHttp.send(null);
+  fetch(theUrl)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(response) {
+      callback(response);
+    });
 };
 
 //Updates the eventData variable and resets the popup's html document
@@ -17,7 +17,7 @@ function setEventData(data) {
 };
 
 function getEventData() {
-  httpGetAsync("https://community.lambdaspace.gr/c/5/l/latest.json", setEventData);
+  httpGetAsync('https://api.lambdaspace.gr/api/v2.0/events', setEventData);
 };
 
 //Stores the latest JSON response from discourse
