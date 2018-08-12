@@ -17,7 +17,7 @@ function setEventData(data) {
 };
 
 function getEventData() {
-  httpGetAsync('https://api.lambdaspace.gr/api/v2.0/events', setEventData);
+  httpGetAsync("https://api.lambdaspace.gr/api/v2.0/events", setEventData);
 };
 
 //Stores the latest JSON response from discourse

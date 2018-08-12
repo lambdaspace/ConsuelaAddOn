@@ -22,7 +22,7 @@ function eventParser(topic) {
 
 
 function toDate(dateStr) {
-  var parts = dateStr.split('/');
+  var parts = dateStr.split("/");
   return new Date(parts[2], parts[1] - 1, parts[0]);
 }
 
@@ -33,7 +33,7 @@ function parseEvents(data) {
       eventsExist = true;
       var tr = document.createElement("tr");
       tr.className = "clickable";
-      tr.setAttribute('url', event.url);
+      tr.setAttribute("url", event.url);
       var td = document.createElement("td")
       td.textContent = event.date;
       tr.appendChild(td);
